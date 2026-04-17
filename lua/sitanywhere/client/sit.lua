@@ -73,8 +73,9 @@ local function StartSit(trace)
 	end
 end
 
-local function DoSit(trace)
-	if not trace.Hit then return end
+local function DoSit(traceIn)
+	if not traceIn or not traceIn.Hit then return end
+	local trace = table.Copy(traceIn)
 
 	local surfaceAng = trace.HitNormal:Angle() + Angle(-270, 0, 0)
 
